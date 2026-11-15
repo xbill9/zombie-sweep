@@ -1,0 +1,5 @@
+Step Functions                   $0.00140 per sweep
+Lambda (arm64)                   $0.00099 per sweep
+DynamoDB, S3, CloudWatch Logs    $0.00019 per sweep
+Total                            $0.0026 per sweep
+Per month, one sweep a day       $0.08
