@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#444;stroke-width:1.5}
+      .sfn{fill:#fdf1ea;stroke:#b8471d;stroke-width:1.5}
+      .lam{fill:#fff6e0;stroke:#c98a00;stroke-width:1.5}
+      .data{fill:#eaf2fb;stroke:#2f6db5;stroke-width:1.5}
+      .t{font-weight:bold}
+      .s{font-size:12.5px;fill:#555}
+      .l{stroke:#444;stroke-width:1.5;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1000" height="520" fill="#fbfaf7"/>
+  <text x="30" y="40" font-size="22" class="t">Zombie Sweep</text>
+  <text x="30" y="62" class="s">One CloudFormation stack. Nothing runs between sweeps.</text>
+
+  <!-- trigger and account -->
+  <rect x="30" y="125" width="170" height="66" rx="10" class="box"/>
+  <text x="115" y="153" text-anchor="middle" class="t">EventBridge</text>
+  <text x="115" y="173" text-anchor="middle" class="s">Scheduler · daily</text>
+
+  <rect x="30" y="250" width="170" height="90" rx="10" class="box"/>
+  <text x="115" y="278" text-anchor="middle" class="t">Your account</text>
+  <text x="115" y="298" text-anchor="middle" class="s">Describe · List · Get</text>
+  <text x="115" y="316" text-anchor="middle" class="s">read-only role</text>
+
+  <!-- state machine -->
+  <rect x="240" y="90" width="500" height="380" rx="14" class="sfn"/>
+  <text x="260" y="115" class="t">AWS Step Functions (Standard)</text>
+
+  <rect x="260" y="130" width="200" height="56" rx="8" class="box"/>
+  <text x="360" y="153" text-anchor="middle" class="t">ListRegions</text>
+  <text x="360" y="172" text-anchor="middle" class="s">ec2:DescribeRegions (SDK task)</text>
+
+  <rect x="500" y="130" width="220" height="56" rx="8" class="lam"/>
+  <text x="610" y="153" text-anchor="middle" class="t">Lambda · global checks</text>
+  <text x="610" y="172" text-anchor="middle" class="s">Route 53, run once</text>
+
+  <rect x="260" y="210" width="460" height="150" rx="10" class="box" stroke-dasharray="5 4"/>
+  <text x="275" y="233" class="t">Map · every enabled region (17), in parallel</text>
+  <rect x="280" y="250" width="200" height="90" rx="8" class="lam"/>
+  <text x="380" y="278" text-anchor="middle" class="t">Lambda · zombiescan</text>
+  <text x="380" y="298" text-anchor="middle" class="s">28 regional checks</text>
+  <text x="380" y="316" text-anchor="middle" class="s">priced from list prices</text>
+  <rect x="500" y="250" width="200" height="90" rx="8" class="lam"/>
+  <text x="600" y="278" text-anchor="middle" class="t">Lambda · Optimizer</text>
+  <text x="600" y="298" text-anchor="middle" class="s">Compute Optimizer</text>
+  <text x="600" y="316" text-anchor="middle" class="s">idle recommendations</text>
+
+  <rect x="400" y="395" width="300" height="50" rx="8" class="lam"/>
+  <text x="550" y="417" text-anchor="middle" class="t">Lambda · report</text>
+  <text x="550" y="435" text-anchor="middle" class="s">totals computed from the stored rows</text>
+
+  <!-- data -->
+  <rect x="800" y="125" width="170" height="85" rx="10" class="data"/>
+  <text x="885" y="153" text-anchor="middle" class="t">DynamoDB</text>
+  <text x="885" y="173" text-anchor="middle" class="s">one row per finding</text>
+  <text x="885" y="190" text-anchor="middle" class="s">on-demand · 90-day TTL</text>
+
+  <rect x="800" y="385" width="170" height="70" rx="10" class="data"/>
+  <text x="885" y="413" text-anchor="middle" class="t">Amazon S3</text>
+  <text x="885" y="433" text-anchor="middle" class="s">index.html · findings.json</text>
+
+  <rect x="800" y="270" width="170" height="60" rx="10" class="box"/>
+  <text x="885" y="297" text-anchor="middle" class="t">CloudFront</text>
+  <text x="885" y="316" text-anchor="middle" class="s">public report page</text>
+
+  <!-- arrows -->
+  <path d="M200 158 H255" class="l"/>
+  <path d="M460 158 H495" class="l"/>
+  <path d="M360 186 V205" class="l"/>
+  <path d="M280 300 H205" class="l"/>
+  <path d="M720 158 H795" class="l"/>
+  <path d="M720 290 H760 V180 H795" class="l"/>
+  <path d="M490 360 V390" class="l"/>
+  <path d="M800 200 H780 V410 H705" class="l"/>
+  <path d="M700 432 H795" class="l"/>
+  <path d="M885 385 V335" class="l"/>
+  <text x="744" y="148" class="s">rows</text>
+  <text x="712" y="404" class="s">query</text>
+  <text x="712" y="450" class="s">publish</text>
+</svg>

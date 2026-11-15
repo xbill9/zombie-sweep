@@ -1,0 +1,461 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  Zombie Sweep. A daily Step Functions sweep of every enabled region for unused
+  AWS resources: zombiescan checks and Compute Optimizer idle recommendations
+  run side by side in Lambda, rows land in DynamoDB, and a priced report is
+  published to S3 behind CloudFront. Read-only; scales to zero between runs.
+
+Parameters:
+  CodeBucket:
+    Type: String
+  CodeKey:
+    Type: String
+  Schedule:
+    Type: String
+    Default: cron(0 12 * * ? *)
+    Description: When the sweep runs (UTC). Daily at 12:00 by default.
+  MaskIds:
+    Type: String
+    Default: "true"
+    AllowedValues: ["true", "false"]
+    Description: Shorten resource names and ids on the public page.
+
+Resources:
+  # ---------------------------------------------------------------- storage
+  Findings:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - { AttributeName: runId, AttributeType: S }
+        - { AttributeName: sk, AttributeType: S }
+      KeySchema:
+        - { AttributeName: runId, KeyType: HASH }
+        - { AttributeName: sk, KeyType: RANGE }
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+      SSESpecification:
+        SSEEnabled: true
+
+  ReportBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-old-runs
+            Status: Enabled
+            Prefix: runs/
+            ExpirationInDays: 90
+          - Id: abort-multipart
+            Status: Enabled
+            AbortIncompleteMultipartUpload: { DaysAfterInitiation: 1 }
+
+  OriginAccess:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${AWS::StackName}-oac"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: Zombie Sweep report
+        DefaultRootObject: index.html
+        HttpVersion: http2and3
+        PriceClass: PriceClass_100
+        Origins:
+          - Id: report
+            DomainName: !GetAtt ReportBucket.RegionalDomainName
+            OriginAccessControlId: !Ref OriginAccess
+            S3OriginConfig: { OriginAccessIdentity: "" }
+        DefaultCacheBehavior:
+          TargetOriginId: report
+          ViewerProtocolPolicy: redirect-to-https
+          Compress: true
+          # AWS managed CachingOptimized policy; objects carry max-age=60
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ReportBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: cloudfront.amazonaws.com }
+            Action: s3:GetObject
+            Resource: !Sub "${ReportBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}"
+
+  # ---------------------------------------------------------------- IAM
+  ScanRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: read-only-sweep
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: DescribeAndList
+                Effect: Allow
+                Action:
+                  - ec2:Describe*
+                  - rds:Describe*
+                  - rds:List*
+                  - elasticloadbalancing:Describe*
+                  - logs:Describe*
+                  - kms:Describe*
+                  - kms:List*
+                  - elasticfilesystem:Describe*
+                  - secretsmanager:ListSecrets
+                  - secretsmanager:DescribeSecret
+                  - s3:ListAllMyBuckets
+                  - s3:ListBucketMultipartUploads
+                  - s3:GetBucketLocation
+                  - dynamodb:Describe*
+                  - dynamodb:List*
+                  - route53:Get*
+                  - route53:List*
+                  - ecr:Describe*
+                  - ecr:List*
+                  - lightsail:Get*
+                  - cloudwatch:GetMetricStatistics
+                  - cloudwatch:GetMetricData
+                  - compute-optimizer:GetIdleRecommendations
+                  - compute-optimizer:GetEnrollmentStatus
+                  - sts:GetCallerIdentity
+                Resource: "*"
+              # Read the shape of things, never their contents.
+              - Sid: NoSecretsOrData
+                Effect: Deny
+                Action:
+                  - secretsmanager:GetSecretValue
+                  - s3:GetObject
+                  - lightsail:GetInstanceAccessDetails
+                  - lightsail:GetRelationalDatabaseMasterUserPassword
+                  - ecr:GetAuthorizationToken
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:BatchGetImage
+                Resource: "*"
+              - Sid: WriteFindings
+                Effect: Allow
+                Action: [dynamodb:PutItem, dynamodb:BatchWriteItem]
+                Resource: !GetAtt Findings.Arn
+
+  ReportRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: report
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:Query
+                Resource: !GetAtt Findings.Arn
+              - Effect: Allow
+                Action: [s3:PutObject, s3:GetObject]
+                Resource: !Sub "${ReportBucket.Arn}/*"
+              - Effect: Allow
+                Action: s3:ListBucket
+                Resource: !GetAtt ReportBucket.Arn
+
+  # ---------------------------------------------------------------- Lambda
+  # Log groups are declared so they carry a retention period. A sweep for
+  # log groups that keep data forever should not create one.
+  ScanLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AWS::StackName}-scan"
+      RetentionInDays: 14
+  OptimizerLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AWS::StackName}-optimizer"
+      RetentionInDays: 14
+  ReportLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${AWS::StackName}-report"
+      RetentionInDays: 14
+  SweepLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/vendedlogs/states/${AWS::StackName}-sweep"
+      RetentionInDays: 14
+
+  ScanFunction:
+    Type: AWS::Lambda::Function
+    DependsOn: ScanLogs
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-scan"
+      Description: zombiescan checks for one region (read-only)
+      Runtime: python3.13
+      Architectures: [arm64]
+      Handler: scan_region.handler
+      MemorySize: 512
+      Timeout: 300
+      Role: !GetAtt ScanRole.Arn
+      Code: { S3Bucket: !Ref CodeBucket, S3Key: !Ref CodeKey }
+      Environment:
+        Variables: { TABLE_NAME: !Ref Findings }
+
+  OptimizerFunction:
+    Type: AWS::Lambda::Function
+    DependsOn: OptimizerLogs
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-optimizer"
+      Description: Compute Optimizer idle recommendations for one region
+      Runtime: python3.13
+      Architectures: [arm64]
+      Handler: optimizer.handler
+      MemorySize: 256
+      Timeout: 120
+      Role: !GetAtt ScanRole.Arn
+      Code: { S3Bucket: !Ref CodeBucket, S3Key: !Ref CodeKey }
+      Environment:
+        Variables: { TABLE_NAME: !Ref Findings }
+
+  ReportFunction:
+    Type: AWS::Lambda::Function
+    DependsOn: ReportLogs
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-report"
+      Description: Totals and the public report page
+      Runtime: python3.13
+      Architectures: [arm64]
+      Handler: report.handler
+      MemorySize: 512
+      Timeout: 120
+      Role: !GetAtt ReportRole.Arn
+      Code: { S3Bucket: !Ref CodeBucket, S3Key: !Ref CodeKey }
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref Findings
+          BUCKET_NAME: !Ref ReportBucket
+          MASK_IDS: !Ref MaskIds
+
+  # ---------------------------------------------------------------- Step Functions
+  SweepRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: states.amazonaws.com }
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: sweep
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource:
+                  - !GetAtt ScanFunction.Arn
+                  - !GetAtt OptimizerFunction.Arn
+                  - !GetAtt ReportFunction.Arn
+              - Effect: Allow
+                Action: ec2:DescribeRegions
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogDelivery
+                  - logs:GetLogDelivery
+                  - logs:UpdateLogDelivery
+                  - logs:DeleteLogDelivery
+                  - logs:ListLogDeliveries
+                  - logs:PutResourcePolicy
+                  - logs:DescribeResourcePolicies
+                  - logs:DescribeLogGroups
+                Resource: "*"
+
+  Sweep:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      StateMachineName: !Sub "${AWS::StackName}-sweep"
+      StateMachineType: STANDARD
+      RoleArn: !GetAtt SweepRole.Arn
+      LoggingConfiguration:
+        Level: ERROR
+        IncludeExecutionData: false
+        Destinations:
+          - CloudWatchLogsLogGroup: { LogGroupArn: !GetAtt SweepLogs.Arn }
+      DefinitionSubstitutions:
+        ScanArn: !GetAtt ScanFunction.Arn
+        OptimizerArn: !GetAtt OptimizerFunction.Arn
+        ReportArn: !GetAtt ReportFunction.Arn
+      Definition:
+        Comment: Sweep every enabled region, then publish one report.
+        StartAt: ListRegions
+        States:
+          ListRegions:
+            Type: Task
+            Comment: Regions this account has enabled; opted-out ones are left out by AWS.
+            Resource: arn:aws:states:::aws-sdk:ec2:describeRegions
+            Parameters: {}
+            ResultSelector:
+              regions.$: $.Regions[*].RegionName
+            ResultPath: $.list
+            Next: Sweep
+          Sweep:
+            Type: Parallel
+            ResultPath: $.sweep
+            Next: Report
+            Branches:
+              - StartAt: EachRegion
+                States:
+                  EachRegion:
+                    Type: Map
+                    ItemsPath: $.list.regions
+                    MaxConcurrency: 0
+                    ItemSelector:
+                      runId.$: $$.Execution.Name
+                      region.$: $$.Map.Item.Value
+                    ItemProcessor:
+                      ProcessorConfig: { Mode: INLINE }
+                      StartAt: BothSources
+                      States:
+                        BothSources:
+                          Type: Parallel
+                          End: true
+                          Branches:
+                            - StartAt: Zombiescan
+                              States:
+                                Zombiescan:
+                                  Type: Task
+                                  Resource: arn:aws:states:::lambda:invoke
+                                  Parameters:
+                                    FunctionName: ${ScanArn}
+                                    Payload.$: $
+                                  OutputPath: $.Payload
+                                  Retry:
+                                    - ErrorEquals: [Lambda.TooManyRequestsException, Lambda.ServiceException, Lambda.SdkClientException]
+                                      IntervalSeconds: 2
+                                      MaxAttempts: 4
+                                      BackoffRate: 2
+                                  End: true
+                            - StartAt: ComputeOptimizer
+                              States:
+                                ComputeOptimizer:
+                                  Type: Task
+                                  Resource: arn:aws:states:::lambda:invoke
+                                  Parameters:
+                                    FunctionName: ${OptimizerArn}
+                                    Payload.$: $
+                                  OutputPath: $.Payload
+                                  Retry:
+                                    - ErrorEquals: [Lambda.TooManyRequestsException, Lambda.ServiceException, Lambda.SdkClientException]
+                                      IntervalSeconds: 2
+                                      MaxAttempts: 4
+                                      BackoffRate: 2
+                                  End: true
+                    End: true
+              - StartAt: GlobalChecks
+                States:
+                  GlobalChecks:
+                    Type: Task
+                    Comment: Route 53 is global, so it is checked once.
+                    Resource: arn:aws:states:::lambda:invoke
+                    Parameters:
+                      FunctionName: ${ScanArn}
+                      Payload:
+                        runId.$: $$.Execution.Name
+                        region: us-east-1
+                        global: true
+                    OutputPath: $.Payload
+                    Retry:
+                      - ErrorEquals: [Lambda.TooManyRequestsException, Lambda.ServiceException, Lambda.SdkClientException]
+                        IntervalSeconds: 2
+                        MaxAttempts: 4
+                        BackoffRate: 2
+                    End: true
+          Report:
+            Type: Task
+            Resource: arn:aws:states:::lambda:invoke
+            Parameters:
+              FunctionName: ${ReportArn}
+              Payload:
+                runId.$: $$.Execution.Name
+                startedAt.$: $$.Execution.StartTime
+                results.$: $.sweep
+            OutputPath: $.Payload
+            End: true
+
+  # ---------------------------------------------------------------- schedule
+  ScheduleRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: scheduler.amazonaws.com }
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals: { aws:SourceAccount: !Ref AWS::AccountId }
+      Policies:
+        - PolicyName: start-sweep
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: states:StartExecution
+                Resource: !Ref Sweep
+
+  DailySweep:
+    Type: AWS::Scheduler::Schedule
+    Properties:
+      Description: Run the zombie sweep once a day
+      ScheduleExpression: !Ref Schedule
+      FlexibleTimeWindow: { Mode: "OFF" }
+      Target:
+        Arn: !Ref Sweep
+        RoleArn: !GetAtt ScheduleRole.Arn
+        Input: "{}"
+
+Outputs:
+  ReportUrl:
+    Value: !Sub "https://${Distribution.DomainName}/"
+  StateMachineArn:
+    Value: !Ref Sweep
+  Bucket:
+    Value: !Ref ReportBucket
+  DistributionId:
+    Value: !Ref Distribution
+  Table:
+    Value: !Ref Findings

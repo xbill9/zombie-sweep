@@ -1,0 +1,85 @@
+== ap-south-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== eu-north-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== eu-west-3
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== eu-west-2
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== eu-west-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== ap-northeast-3
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== ap-northeast-2
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== ap-northeast-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== ca-central-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== sa-east-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== ap-southeast-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== ap-southeast-2
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== eu-central-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== us-east-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== us-east-2
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== us-west-1
+{
+    "idleRecommendations": [],
+    "errors": []
+}
+== us-west-2
+{
+    "idleRecommendations": [],
+    "errors": []
+}

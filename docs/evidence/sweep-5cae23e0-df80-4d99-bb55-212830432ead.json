@@ -1,0 +1,2235 @@
+{
+ "run": {
+  "runId": "5cae23e0-df80-4d99-bb55-212830432ead",
+  "startedAt": "2026-11-15T15:47:08.118Z",
+  "results": [
+   {
+    "source": "zombiescan",
+    "region": "ap-south-1",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 6.12
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "ap-south-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.75
+   },
+   {
+    "source": "zombiescan",
+    "region": "eu-north-1",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 7.29
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "eu-north-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.5
+   },
+   {
+    "source": "zombiescan",
+    "region": "eu-west-3",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 5.91
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "eu-west-3",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.46
+   },
+   {
+    "source": "zombiescan",
+    "region": "eu-west-2",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 6.41
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "eu-west-2",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.46
+   },
+   {
+    "source": "zombiescan",
+    "region": "eu-west-1",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 5.98
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "eu-west-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.41
+   },
+   {
+    "source": "zombiescan",
+    "region": "ap-northeast-3",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 16.63
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "ap-northeast-3",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.82
+   },
+   {
+    "source": "zombiescan",
+    "region": "ap-northeast-2",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 7.28
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "ap-northeast-2",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.72
+   },
+   {
+    "source": "zombiescan",
+    "region": "ap-northeast-1",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 6.79
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "ap-northeast-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.67
+   },
+   {
+    "source": "zombiescan",
+    "region": "ca-central-1",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 5.64
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "ca-central-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.24
+   },
+   {
+    "source": "zombiescan",
+    "region": "sa-east-1",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 5.39
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "sa-east-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.52
+   },
+   {
+    "source": "zombiescan",
+    "region": "ap-southeast-1",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 6.97
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "ap-southeast-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.89
+   },
+   {
+    "source": "zombiescan",
+    "region": "ap-southeast-2",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 8.19
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "ap-southeast-2",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.81
+   },
+   {
+    "source": "zombiescan",
+    "region": "eu-central-1",
+    "findings": 0,
+    "monthlyCost": 0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 6.33
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "eu-central-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.47
+   },
+   {
+    "source": "zombiescan",
+    "region": "us-east-1",
+    "findings": 115,
+    "monthlyCost": 10.38,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 5.83
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "us-east-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.24
+   },
+   {
+    "source": "zombiescan",
+    "region": "us-east-2",
+    "findings": 54,
+    "monthlyCost": 0.4,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 5.54
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "us-east-2",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.25
+   },
+   {
+    "source": "zombiescan",
+    "region": "us-west-1",
+    "findings": 2,
+    "monthlyCost": 0.0,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 16.19
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "us-west-1",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.36
+   },
+   {
+    "source": "zombiescan",
+    "region": "us-west-2",
+    "findings": 12,
+    "monthlyCost": 0.64,
+    "errors": [],
+    "checksRun": 28,
+    "seconds": 6.6
+   },
+   {
+    "source": "compute-optimizer",
+    "region": "us-west-2",
+    "findings": 0,
+    "monthlyCost": 0.0,
+    "errors": [
+     "InvalidParameterValueException: An error occurred (InvalidParameterValueException) when calling the GetIdleRecommendations operation: Invalid Max Results."
+    ],
+    "seconds": 0.36
+   },
+   {
+    "source": "zombiescan-global",
+    "region": "us-east-1",
+    "findings": 1,
+    "monthlyCost": 0.5,
+    "errors": [],
+    "checksRun": 2,
+    "seconds": 0.76
+   }
+  ]
+ },
+ "summary": {
+  "findings": 184,
+  "monthlyCost": 11.92,
+  "bySource": {
+   "zombiescan": {
+    "findings": 184,
+    "monthlyCost": 11.92
+   }
+  },
+  "byCheck": {
+   "ecr-stale-images": {
+    "findings": 35,
+    "monthlyCost": 6.62,
+    "source": "zombiescan"
+   },
+   "unused-ami": {
+    "findings": 1,
+    "monthlyCost": 4.0,
+    "source": "zombiescan"
+   },
+   "stale-secret": {
+    "findings": 2,
+    "monthlyCost": 0.8,
+    "source": "zombiescan"
+   },
+   "unused-route53-zone": {
+    "findings": 1,
+    "monthlyCost": 0.5,
+    "source": "zombiescan"
+   },
+   "empty-vpc": {
+    "findings": 1,
+    "monthlyCost": 0.0,
+    "source": "zombiescan"
+   },
+   "log-group-no-retention": {
+    "findings": 120,
+    "monthlyCost": 0.0,
+    "source": "zombiescan"
+   },
+   "unused-security-group": {
+    "findings": 24,
+    "monthlyCost": 0.0,
+    "source": "zombiescan"
+   }
+  },
+  "outsideComputeOptimizerTypes": {
+   "findings": 184,
+   "monthlyCost": 11.92
+  },
+  "foundByBoth": 0,
+  "regionsWithFindings": 5
+ },
+ "findings": [
+  {
+   "resourceType": "route53-hosted-zone",
+   "resourceId": "Z045\u20269ERY",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "global",
+   "reason": "Private hosted zone agent.local. holds only the 2 record set(s) Route 53 creates with a zone, so it resolves nothing; it belongs to Cloud Map namespace ns-kyjziaevjp3dv2ua, which registers nothing",
+   "check": "unused-route53-zone",
+   "monthlyCost": 0.5
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026lder",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "20 image(s) holding up to 2.53 GB; nothing pushed in 214 days, 19 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.25
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026-app",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "23 image(s) holding up to 3.67 GB; nothing pushed in 213 days, 21 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.37
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026lder",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.17 GB; nothing pushed in 214 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.12
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026udge",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.17 GB; nothing pushed in 214 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.12
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026ator",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.27 GB; nothing pushed in 214 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.13
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026repo",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "9 image(s) holding up to 1.38 GB; nothing pushed in 214 days, 8 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.14
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026cher",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.17 GB; nothing pushed in 214 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.12
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026udge",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "20 image(s) holding up to 2.53 GB; nothing pushed in 214 days, 19 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.25
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026ator",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "20 image(s) holding up to 2.75 GB; nothing pushed in 214 days, 19 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.27
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026cher",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "20 image(s) holding up to 2.53 GB; nothing pushed in 214 days, 19 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.25
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adkui-\u2026repo",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "6 image(s) holding up to 0.98 GB; nothing pushed in 224 days, 5 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.1
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "ai-\u2026-app",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "26 image(s) holding up to 5.21 GB; nothing pushed in 215 days, 25 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.52
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "ai-\u2026lder",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "26 image(s) holding up to 4.41 GB; nothing pushed in 215 days, 25 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.44
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "ai-\u2026udge",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "26 image(s) holding up to 4.41 GB; nothing pushed in 215 days, 25 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.44
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "ai-\u2026ator",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "26 image(s) holding up to 4.79 GB; nothing pushed in 215 days, 25 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.48
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "ai-\u2026cher",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "26 image(s) holding up to 4.41 GB; nothing pushed in 215 days, 25 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.44
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "biom\u2026cout",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "18 image(s) holding up to 3.81 GB; nothing pushed in 204 days, 17 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.38
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "biom\u2026mbda",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "1 image(s) holding up to 0.19 GB; nothing pushed in 211 days",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.02
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "biom\u2026repo",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "25 image(s) holding up to 3.13 GB; nothing pushed in 217 days, 24 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.31
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "cont\u2026lder",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.13 GB; nothing pushed in 215 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.11
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "cour\u2026ator",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.34 GB; nothing pushed in 215 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.13
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "cour\u2026ated",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "6 image(s) holding up to 1.05 GB; nothing pushed in 206 days, 5 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.1
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "cour\u2026cher",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "1 image(s) holding up to 0.00 GB; nothing pushed in 209 days",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "cour\u2026tack",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "21 image(s) holding up to 4.71 GB; nothing pushed in 204 days, 20 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.47
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "judge",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.13 GB; nothing pushed in 215 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.11
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "mcp-\u2026-aws",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "11 image(s) holding up to 0.06 GB; nothing pushed in 190 days, 10 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.01
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "mcp-\u2026-aws",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "3 image(s) holding up to 0.03 GB; nothing pushed in 186 days, 2 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "mcp-\u2026r-eb",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "7 image(s) holding up to 0.04 GB; nothing pushed in 190 days, 6 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "mcp-\u2026sail",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "1 image(s) holding up to 0.07 GB; nothing pushed in 246 days",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.01
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "mcp-\u2026repo",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "12 image(s) holding up to 0.56 GB; nothing pushed in 224 days, 11 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.06
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "orch\u2026ator",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.23 GB; nothing pushed in 215 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.12
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "rese\u2026cher",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "8 image(s) holding up to 1.13 GB; nothing pushed in 215 days, 7 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.11
+  },
+  {
+   "resourceType": "vpc",
+   "resourceId": "vpc-\u2026ba38",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "VPC 'eksctl-mcp-eks-cluster-cluster/VPC' holds no network interfaces of any kind",
+   "check": "empty-vpc",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026data",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026tion",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.01 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026vice",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026tion",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026vice",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.01 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026lder",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026449e",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026fbc5",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u202604be",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u202648b9",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026fa31",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u202613d5",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026d455",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20267e39",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026d6df",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026c5f5",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026ef19",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20262de0",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20261800",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u202643cb",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026d3b1",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026ddf2",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u202647f3",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20265174",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u202669a2",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u202682d8",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026a489",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026febd",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026ca70",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20260639",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264fdb",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026mbda",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026cout",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026t-v3",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026ated",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026lder",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026lder",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026udge",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026ator",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026cher",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-aws",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-aws",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/ecs\u2026task",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/ecs\u2026task",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/ecs\u2026lder",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/ecs\u2026ator",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/ecs\u2026udge",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/ecs\u2026ator",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/ecs\u2026cher",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "ami",
+   "resourceId": "ami-\u202630ee",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "AMI not used by any instance, backed by 1 snapshot(s) (80 GB); 94 days old",
+   "check": "unused-ami",
+   "monthlyCost": 4.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026ef1f",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'eksctl-mcp-eks-cluster-cluster-ControlPlaneSecurityGroup-E3JU7pIrqFvm' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026a770",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'gpu-jax-g5g-2b-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20261592",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'eksctl-mcp-eks-cluster-nodegroup-standard-nodes-remoteAccess' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u202629e1",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'k8s-elb-a27c61bc6fb3c425ca13d862e0fe4aed' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026c2f5",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'launch-wizard-4' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u202694c0",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'strands-demo-g5g-ssm-only' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026defd",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'adk-fargate-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u202682f5",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'launch-wizard-2' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026dad3",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'vllm-devops-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026e6fb",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'launch-wizard-1' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20265925",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'launch-wizard-5' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20268991",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'launch-wizard-3' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20263a2d",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'vllm-devops-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20264618",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'gpu-pytorch-g6-2b-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026f37a",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'gpu-vllm-g6-2b-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20260e07",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-1",
+   "reason": "Security group 'k8s-elb-aadf6b26ff7dc4c848e44c93dff53238' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026mage",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-12b",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-t4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-pr",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20268-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20268-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-qat",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026t-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026pack",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026k-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026t-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-t4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026t-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264a16",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20266-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026vfp4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-qat",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026t-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-2xl",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026ezed",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026only",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026t-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-e2b",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026ands",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-t4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-pr",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20268-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20268-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-qat",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026l40s",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026pack",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026tock",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026ands",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026text",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-e4b",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20264-t4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20268-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u20268-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026-qat",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026pack",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026t-l4",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "secret",
+   "resourceId": "hf-token",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Secret has not been retrieved in 103 days",
+   "check": "stale-secret",
+   "monthlyCost": 0.4
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20267bdf",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Security group 'gpu-vllm-g4dn-ssm-only' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20260464",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Security group 'vllm-devops-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20265448",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Security group 'inf2-repack-sweep-noingress' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026a8ea",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-east-2",
+   "reason": "Security group 'gpu-vllm-g6-ssm-only' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026mbda",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-1",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20260b92",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-west-1",
+   "reason": "Security group 'vllm-devops-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "adk-\u2026mbda",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "1 image(s) holding up to 0.17 GB; nothing pushed in 217 days",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.02
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "curr\u2026mesh",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "27 image(s) holding up to 1.34 GB; nothing pushed in 94 days, 25 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.13
+  },
+  {
+   "resourceType": "ecr-repository",
+   "resourceId": "rese\u2026mesh",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "18 image(s) holding up to 0.94 GB; nothing pushed in 92 days, 17 untagged",
+   "check": "ecr-stale-images",
+   "monthlyCost": 0.09
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "log-group",
+   "resourceId": "/aws\u2026AULT",
+   "approximate": true,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Log group has no retention policy and holds 0.00 GB that will never expire",
+   "check": "log-group-no-retention",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "secret",
+   "resourceId": "curr\u2026cret",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Secret has not been retrieved in 95 days",
+   "check": "stale-secret",
+   "monthlyCost": 0.4
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u2026462d",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Security group 'strands-demo-ssm-only' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u202657b4",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Security group 'vllm-devops-sg' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  },
+  {
+   "resourceType": "security-group",
+   "resourceId": "sg-\u20260482",
+   "approximate": false,
+   "source": "zombiescan",
+   "region": "us-west-2",
+   "reason": "Security group 'graveyard-l4' is attached to no interface and referenced by no other group",
+   "check": "unused-security-group",
+   "monthlyCost": 0.0
+  }
+ ]
+}

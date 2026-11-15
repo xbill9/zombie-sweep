@@ -1,0 +1,9 @@
+Lambda scan        $0.000922/sweep  $0.0277/month
+Lambda optimizer   $0.000064/sweep  $0.0019/month
+Lambda report      $0.000007/sweep  $0.0002/month
+Step Functions     $0.001400/sweep  $0.0420/month
+DynamoDB writes    $0.000115/sweep  $0.0034/month
+S3 requests        $0.000025/sweep  $0.0008/month
+CloudWatch Logs    $0.000050/sweep  $0.0015/month
+TOTAL              $0.002583/sweep  $0.0775/month (daily)
+waste found $11.92/month = 154x the sweep's cost
