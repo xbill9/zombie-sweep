@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Zombie Sweep: A Daily Serverless Hunt for Unused AWS Resources</title>
+  <meta name="description" content="A Step Functions sweep of every enabled region that runs zombiescan&#x27;s checks beside Compute Optimizer&#x27;s idle recommendations, stores findings in DynamoDB and publishes a priced report to S3 and CloudFront." />
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <style>
+    body{font-family:-apple-system,'Segoe UI',Roboto,'Liberation Sans',Arial,sans-serif;
+         font-size:18px;line-height:1.58;max-width:42em;color:#242424;}
+    h1,h2,h3,h4{font-weight:700;line-height:1.25;margin-top:1.8em;}
+    h4{font-size:1.25em;}
+    img{max-width:100%;height:auto;display:block;margin:1.6em 0;}
+    pre{background:#f7f7f7;border:1px solid #e6e6e6;border-radius:4px;
+        padding:12px 14px;overflow-x:auto;font-size:14px;line-height:1.45;}
+    code{font-family:'Liberation Mono',Menlo,Consolas,monospace;}
+    :not(pre)>code{background:#f2f2f2;padding:1px 5px;border-radius:3px;font-size:.9em;}
+    blockquote{border-left:3px solid #ddd;margin-left:0;padding-left:1em;color:#555;}
+    hr{border:0;border-top:1px solid #e6e6e6;margin:2.4em 0;}
+  </style>
+</head>
+<body>
+<p>This article provides a step by step guide to building a daily sweep
+for unused AWS resources with AWS Step Functions, AWS Lambda, Amazon
+DynamoDB, Amazon S3 and Amazon CloudFront. Each region runs zombiescan's
+checks beside AWS Compute Optimizer's idle recommendations, and one
+report prices what both found.</p>
+<figure><img src="https://raw.githubusercontent.com/xbill9/zombie-sweep/main/docs/medium/img/devto-cover.dc409d3f.jpg" alt="Zombie Sweep: A Daily Serverless Hunt for Unused AWS Resources" /></figure>
+<p>Repository: <a
+href="https://github.com/xbill9/zombie-sweep">https://github.com/xbill9/zombie-sweep</a></p>
+<p>Live report: <a
+href="https://diomvue77lcq.cloudfront.net/">https://diomvue77lcq.cloudfront.net/</a></p>
+<p>Demo video: <a
+href="https://youtu.be/pb8_4G7hu-M">youtu.be/pb8_4G7hu-M</a></p>
+<hr />
+<h4 id="what-is-a-zombie-resource">What Is a Zombie Resource?</h4>
+<p>A zombie resource is something that still bills and no longer does
+any work. An Elastic IP attached to nothing, a container repository
+nobody has pushed to in months, a secret nobody reads, a hosted zone
+that resolves nothing.</p>
+<p>They collect where nobody looks: in regions you used once, in stacks
+that were half deleted, in experiments that ended on a Friday.</p>
+<hr />
+<h4 id="doesnt-aws-already-do-this">Doesn't AWS Already Do This?</h4>
+<p>Partly. AWS Compute Optimizer gives idle recommendations for 12
+resource types: EC2 instances, Auto Scaling groups, EBS volumes, ECS
+services on Fargate, RDS and Aurora, NAT gateways, provisioned DynamoDB
+tables, ElastiCache, MemoryDB, DocumentDB, WorkSpaces and SageMaker
+endpoints.</p>
+<p>AWS Trusted Advisor has cost checks too, and they need a Business
+Support plan or higher.</p>
+<p>Container images, AMIs, snapshots, secrets, hosted zones, log groups,
+security groups and VPC endpoints sit outside Compute Optimizer's list.
+Zombie Sweep runs both sources side by side, so the report shows what
+each one sees.</p>
+<hr />
+<h4 id="at-this-point-you-should-have">At This Point You Should
+Have</h4>
+<ul>
+<li>An AWS account and the AWS CLI, version 2</li>
+<li><code>git</code> and <code>python3</code> on the machine that
+deploys</li>
+<li>Compute Optimizer opted in, for its half of the report</li>
+</ul>
+<p>No AWS SAM, AWS CDK or build server is needed.</p>
+<hr />
+<h4 id="how-it-fits-together">How It Fits Together</h4>
+<p><img
+src="https://raw.githubusercontent.com/xbill9/zombie-sweep/main/docs/architecture.png"
+alt="Zombie Sweep architecture" /></p>
+<p>EventBridge Scheduler starts a Step Functions state machine once a
+day. The state machine lists the account's regions, fans out to all of
+them, and hands the results to a report function. Nothing runs between
+sweeps.</p>
+<hr />
+<h4 id="step-1--list-the-regions-from-step-functions">Step 1 — List the
+Regions From Step Functions</h4>
+<p>Step Functions calls <code>ec2:DescribeRegions</code> directly as an
+AWS SDK task, with no Lambda function in between. Regions the account
+has opted out of are left out by AWS, so they are never scanned.</p>
+<pre class="yaml"><code>ListRegions:
+  Type: Task
+  Resource: arn:aws:states:::aws-sdk:ec2:describeRegions
+  Parameters: {}
+  ResultSelector:
+    regions.$: $.Regions[*].RegionName
+  ResultPath: $.list
+  Next: Sweep</code></pre>
+<hr />
+<h4 id="step-2--fan-out-two-functions-per-region">Step 2 — Fan Out, Two
+Functions per Region</h4>
+<p>A Map state runs every region at once. Inside each iteration, a
+Parallel state starts two Lambda functions: one runs zombiescan's 28
+regional checks, the other reads Compute Optimizer's idle
+recommendations for that region. A third branch runs the 2 global Route
+53 checks once, so a hosted zone is counted once.</p>
+<pre class="yaml"><code>EachRegion:
+  Type: Map
+  ItemsPath: $.list.regions
+  MaxConcurrency: 0
+  ItemSelector:
+    runId.$: $$.Execution.Name
+    region.$: $$.Map.Item.Value
+  ItemProcessor:
+    ProcessorConfig: { Mode: INLINE }
+    StartAt: BothSources</code></pre>
+<p>The scan function bundles zombiescan's engine at a pinned commit and
+calls it for one region:</p>
+<pre class="python"><code>checks = [c for c in engine.select_checks(()) if c.is_global == want_global]
+result = engine.scan(boto3.Session(), [region], checks, PRICING, max_workers=8)</code></pre>
+<hr />
+<h4 id="step-3--one-row-per-finding">Step 3 — One Row per Finding</h4>
+<p>Both functions write to the same DynamoDB table in the same shape,
+keyed by run and by source:</p>
+<pre class="text"><code>runId = 5cae23e0-...                      (the Step Functions execution name)
+sk    = zombiescan#us-east-1#unused-ami#ami-...
+sk    = compute-optimizer#us-east-1#EBSVolume#vol-...</code></pre>
+<p>The table is on-demand, so it costs nothing between sweeps, and every
+row carries a 90-day TTL.</p>
+<hr />
+<h4 id="step-4--read-the-shape-of-things-never-their-contents">Step 4 —
+Read the Shape of Things, Never Their Contents</h4>
+<p>The scan role allows <code>Describe*</code>, <code>List*</code> and a
+short list of <code>Get*</code> calls. An explicit deny closes the calls
+that would read data:</p>
+<pre class="yaml"><code>- Sid: NoSecretsOrData
+  Effect: Deny
+  Action:
+    - secretsmanager:GetSecretValue
+    - s3:GetObject
+    - lightsail:GetInstanceAccessDetails
+    - lightsail:GetRelationalDatabaseMasterUserPassword
+    - ecr:GetAuthorizationToken
+    - ecr:GetDownloadUrlForLayer
+    - ecr:BatchGetImage
+  Resource: &quot;*&quot;</code></pre>
+<p>The stale-secret check reads when a secret was last retrieved from
+<code>DescribeSecret</code>. It never needs the value.</p>
+<hr />
+<h4 id="step-5--totals-in-code-report-on-s3">Step 5 — Totals in Code,
+Report on S3</h4>
+<p>The report function queries the run's rows and computes every total
+from them: per source, per check, and the share that falls on resource
+types outside Compute Optimizer's list. It writes
+<code>index.html</code> and <code>findings.json</code> to a private S3
+bucket behind CloudFront.</p>
+<p>The page is public, so resource names and ids are shortened on it.
+The full rows stay in DynamoDB, which only the account can read.</p>
+<hr />
+<h4 id="mag_right-tip-declare-your-own-log-groups">🔎 Tip: Declare Your
+Own Log Groups</h4>
+<p>Lambda and Step Functions create log groups that keep data forever
+unless told otherwise. The sweep's own checks flag that, so the template
+declares every log group with a 14-day retention:</p>
+<pre class="yaml"><code>ScanLogs:
+  Type: AWS::Logs::LogGroup
+  Properties:
+    LogGroupName: !Sub &quot;/aws/lambda/${AWS::StackName}-scan&quot;
+    RetentionInDays: 14</code></pre>
+<p>On the account it was built on, 120 other log groups had no retention
+set.</p>
+<hr />
+<h4 id="step-6--deploy-with-one-script">Step 6 — Deploy With One
+Script</h4>
+<p><code>deploy.sh</code> bundles the three handlers with zombiescan,
+uploads the bundle under a name derived from its hash, and runs
+<code>aws cloudformation deploy</code>:</p>
+<pre class="bash"><code>./deploy.sh
+bundle s3://zombie-sweep-code-...-us-east-1/bundle-a23bc964e7caaeb2.zip (96K)
+Waiting for changeset to be created..
+Waiting for stack create/update to complete
+Successfully created/updated stack - zombie-sweep</code></pre>
+<p><code>./deploy.sh run</code> starts a sweep and waits for it:</p>
+<pre class="text"><code>{
+    &quot;status&quot;: &quot;SUCCEEDED&quot;,
+    &quot;start&quot;: &quot;2026-11-15T10:48:45.543000-05:00&quot;,
+    &quot;stop&quot;: &quot;2026-11-15T10:49:04.580000-05:00&quot;,
+    &quot;output&quot;: &quot;{\&quot;runId\&quot;:\&quot;b974c166-bd60-4e13-87f2-93aaa18af95a\&quot;,\&quot;findings\&quot;:184,\&quot;monthlyCost\&quot;:11.92,\&quot;outsideComputeOptimizerTypes\&quot;:{\&quot;findings\&quot;:184,\&quot;monthlyCost\&quot;:11.92},\&quot;foundByBoth\&quot;:0}&quot;
+}</code></pre>
+<p>Seventeen regions, 35 Lambda invocations, no errors, 19 seconds end
+to end.</p>
+<hr />
+<h4 id="what-the-sweep-found">What the Sweep Found</h4>
+<p>Compute Optimizer returned no idle recommendations in any of the 17
+regions. zombiescan found 184 resources:</p>
+<p><img src="https://raw.githubusercontent.com/xbill9/zombie-sweep/main/docs/medium/img/devto-zombie-sweep-table-1.png"
+alt="Table: Check, Findings, Monthly" /></p>
+<p>That is $11.92 a month, and all 184 findings are resource types
+outside Compute Optimizer's idle list. The zero-dollar rows cost nothing
+today and are still clutter: an unbounded log group grows its bill with
+every write.</p>
+<hr />
+<h4 id="compare-and-contrast">Compare and Contrast</h4>
+<p><img src="https://raw.githubusercontent.com/xbill9/zombie-sweep/main/docs/medium/img/devto-zombie-sweep-table-2.png"
+alt="Table: Compute Optimizer, Trusted Advisor cost checks, Zombie Sweep" /></p>
+<hr />
+<h4 id="what-does-it-cost">What Does It Cost?</h4>
+<p>Measured from the run above: billed Lambda time from each function's
+log, 56 state transitions, and us-east-1 list prices from the AWS Price
+List API, without free tiers.</p>
+<p><img src="https://raw.githubusercontent.com/xbill9/zombie-sweep/main/docs/medium/img/devto-zombie-sweep-table-3.png"
+alt="Table: Item, Per sweep" /></p>
+<p>At one sweep a day that is $0.08 a month, against $11.92 a month of
+waste found. Between sweeps nothing runs.</p>
+<hr />
+<h4 id="so-which-one">So, Which One?</h4>
+<p>Keep Compute Optimizer on: it watches utilisation over weeks, which a
+point-in-time scan cannot. Add a sweep for everything outside its list.
+Running both in one Step Functions execution puts the two answers in one
+table, priced the same way, and shows which source found each item.</p>
+<hr />
+<h4 id="summary">Summary</h4>
+<p>The goal of this article was to find unused AWS resources every day
+across every region for close to nothing. The key to the solution was a
+Step Functions Map state that runs zombiescan's checks beside Compute
+Optimizer in Lambda and keeps the totals in code. The results on one
+account were:</p>
+<ul>
+<li>🟢 17 regions swept in 19 seconds, 35 Lambda invocations, no
+errors</li>
+<li>🟢 184 unused resources found, an estimated $11.92 a month</li>
+<li>⚠️ Compute Optimizer returned no idle recommendations; all 184
+findings are types outside its list</li>
+<li>🟢 $0.0026 per sweep, measured</li>
+</ul>
+<p>Scope: one AWS account with 17 enabled regions, swept on 2026-11-15.
+Costs are estimates from AWS list prices and exclude Secrets Manager and
+KMS per-call charges and CloudFront delivery. Compute Optimizer had been
+opted in for a month. The sweep is read-only and deletes nothing.</p>
+<p>The strategy for using Step Functions and Lambda for a daily waste
+sweep was validated with an incremental step by step approach.</p>
+<h4 id="references">References</h4>
+<ul>
+<li><a href="https://diomvue77lcq.cloudfront.net/">Live report</a></li>
+<li><a href="https://github.com/xbill9/zombie-sweep">Code on
+GitHub</a></li>
+<li><a href="https://github.com/xbill9/zombiescan">zombiescan</a></li>
+<li><a
+href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-idle-recommendations.html">Compute
+Optimizer idle recommendations</a></li>
+<li><a
+href="https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html">AWS
+Trusted Advisor</a></li>
+<li><a
+href="https://docs.aws.amazon.com/step-functions/latest/dg/supported-services-awssdk.html">Step
+Functions AWS SDK integrations</a></li>
+</ul>
+</body>
+</html>
