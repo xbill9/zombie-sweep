@@ -1,0 +1,20 @@
+My No Pipeline, No Problem entry: Compute Optimizer found nothing idle on my AWS account. What did it miss?
+
+A Step Functions sweep of every enabled region that runs zombiescan's checks beside Compute Optimizer's idle recommendations, stores findings in DynamoDB and publishes a priced report to S3 and CloudFront.
+
+What is in it:
+
+- 🟢 17 regions swept in 19 seconds, 35 Lambda invocations, no errors
+- 🟢 184 unused resources found, an estimated $11.92 a month
+- ⚠️ Compute Optimizer returned no idle recommendations; all 184 findings are types outside its list
+- 🟢 $0.0026 per sweep, measured
+
+dev.to (AWS Community Builders): https://dev.to/aws-builders/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-1ph1
+AWS Builder Center: https://builder.aws.com/content/3M9ZwaQuKuhRaoQcJkcOcEJypNC/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources
+Medium: https://xbill999.medium.com/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-c2b6afbe66b0
+Substack: https://xbill9.substack.com/p/zombie-sweep-a-daily-serverless-hunt
+The challenge: https://builder.aws.com/project/3M9afVYpaJByk2Br9W4FFuGJWn3/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources
+Live demo: https://diomvue77lcq.cloudfront.net/
+GitHub: https://github.com/xbill9/zombie-sweep
+
+#AWS #Serverless #StepFunctions #FinOps #Python

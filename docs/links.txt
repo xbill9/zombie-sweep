@@ -9,3 +9,4 @@ medium = https://xbill999.medium.com/zombie-sweep-a-daily-serverless-hunt-for-un
 substack = https://xbill9.substack.com/p/zombie-sweep-a-daily-serverless-hunt
 linkedin = SKIP
 slack = posted 2026-11-15 #boost-ai-engineering (AWS Builder Community)
+linkedin = https://www.linkedin.com/feed/update/urn:li:activity:7527799460748247040/
