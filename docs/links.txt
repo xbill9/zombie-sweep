@@ -8,3 +8,4 @@ devto-aws = https://dev.to/aws-builders/zombie-sweep-a-daily-serverless-hunt-for
 medium = https://xbill999.medium.com/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-c2b6afbe66b0
 substack = https://xbill9.substack.com/p/zombie-sweep-a-daily-serverless-hunt
 linkedin = SKIP
+slack = posted 2026-11-15 #boost-ai-engineering (AWS Builder Community)
