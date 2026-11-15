@@ -1,0 +1,18 @@
+This article provides a step by step guide to building a daily sweep for unused AWS resources with AWS Step Functions, AWS Lambda, Amazon DynamoDB, Amazon S3 and Amazon CloudFront. Each region runs zombiescan's checks beside AWS Compute Optimizer's idle recommendations, and one report prices what both found.
+Repository: https://github.com/xbill9/zombie-sweep
+Live report: https://diomvue77lcq.cloudfront.net/
+Demo video: https://youtu.be/pb8_4G7hu-M
+
+Builder Center Article is here:
+https://builder.aws.com/content/3M9ZwaQuKuhRaoQcJkcOcEJypNC/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources
+
+Medium is here:
+https://xbill999.medium.com/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-c2b6afbe66b0
+
+Substack is here:
+https://xbill9.substack.com/p/zombie-sweep-a-daily-serverless-hunt
+
+Dev.to is here:
+https://dev.to/aws-builders/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-1ph1
+
+#AWS #Serverless #StepFunctions #FinOps #Python
