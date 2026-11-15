@@ -4,5 +4,5 @@ report      https://diomvue77lcq.cloudfront.net/
 video       https://youtu.be/pb8_4G7hu-M
 # drafts (not published)
 builder     https://builder.aws.com/preview/content/3M9ZwaQuKuhRaoQcJkcOcEJypNC
-hackathon   https://builder.aws.com/project/3M9afVYpaJByk2Br9W4FFuGJWn3/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources
+hackathon   https://builder.aws.com/project/3M9afVYpaJByk2Br9W4FFuGJWn3/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources  (PUBLISHED 2026-11-15, review PASSED)
 devto       https://dev.to/aws-builders/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-dg2-temp-slug-6841310  (id 5042896)
