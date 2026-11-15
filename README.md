@@ -4,6 +4,8 @@ A daily serverless sweep of every enabled AWS region for resources nobody is usi
 
 **Live report:** https://diomvue77lcq.cloudfront.net/
 
+**Demo video:** https://youtu.be/pb8_4G7hu-M
+
 On the account it was built on, Compute Optimizer returned no idle recommendations in any of 17 regions. The same sweep found 184 unused resources costing an estimated $11.92 a month, all of them resource types outside Compute Optimizer's idle list. One sweep costs $0.0026 and takes about 19 seconds.
 
 ![Architecture](docs/architecture.png)

@@ -12,7 +12,7 @@ Repository: https://github.com/xbill9/zombie-sweep
 
 Live report: https://diomvue77lcq.cloudfront.net/
 
-Demo video: PENDING
+Demo video: https://youtu.be/pb8_4G7hu-M
 
 ---
 
