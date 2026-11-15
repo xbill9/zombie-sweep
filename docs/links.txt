@@ -1,8 +1,9 @@
-# Zombie Sweep — where each piece lives (2026-11-15)
+# Zombie Sweep — where each piece lives (published 2026-11-15)
 repo        https://github.com/xbill9/zombie-sweep
 report      https://diomvue77lcq.cloudfront.net/
 video       https://youtu.be/pb8_4G7hu-M
-# drafts (not published)
-builder     https://builder.aws.com/preview/content/3M9ZwaQuKuhRaoQcJkcOcEJypNC
-hackathon   https://builder.aws.com/project/3M9afVYpaJByk2Br9W4FFuGJWn3/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources  (PUBLISHED 2026-11-15, review PASSED)
-devto       https://dev.to/aws-builders/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-dg2-temp-slug-6841310  (id 5042896)
+hackathon   https://builder.aws.com/project/3M9afVYpaJByk2Br9W4FFuGJWn3/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources
+builder     https://builder.aws.com/content/3M9ZwaQuKuhRaoQcJkcOcEJypNC/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources
+devto-aws   https://dev.to/aws-builders/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-1ph1
+medium      https://xbill999.medium.com/zombie-sweep-a-daily-serverless-hunt-for-unused-aws-resources-c2b6afbe66b0
+substack    https://xbill9.substack.com/p/zombie-sweep-a-daily-serverless-hunt
