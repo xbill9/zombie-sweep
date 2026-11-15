@@ -1,2 +1,3 @@
 docs/evidence/zombiescan-baseline-*
 __pycache__/
+docs/medium/*-embed.html
